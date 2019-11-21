@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+body{ 
+    text-align: center; 
+    background: #00ECB9; 
+    font-family: sans-serif; 
+    font-weight: 100; 
+    background-repeat: no-repeat;
+    background-size: cover;
+} 
+h1{ 
+  color: #396; 
+  font-weight: 100; 
+  font-size: 40px; 
+  margin: 40px 0px 20px; 
+} 
+ 
+smalltext{ 
+    padding-top: 5px; 
+    font-size: 16px; 
+} 
+#button:hover{
+background-color: white;
+}
+#button{
+	border-radius: 1em;
+	padding: 2%;
+	background: cyan;
+}
+
+</style>
+<script type="text/javascript">
+
+   	        var timeLeft = 20;
+            var elem = document.getElementById("somediv");
+            var finalScore=0;
+   function rolldice()
+      {        
+
+           if (timeLeft==20)
+           {
+           	countdown();
+           	console.log('working');
+           }
+           	
+           	console.log('working');
+
+            var dice1 = Math.floor(Math.random() * 6 + 1);
+           
+            var position=document.getElementById("position");
+			document.getElementById("d1").src='dice-'+dice1+ '.png';
+			document.getElementById("currentsc").innerHTML=dice1;
+            position.innerHTML="YOU ROLLED" + dice1 +".";
+            finalScore=finalScore+dice1;
+            document.getElementById("total").innerHTML=finalScore;
+         
+        }
+
+
+             function countdown()
+         {
+         		console.log('working');
+       
+                 if(timeLeft == 0) 
+              {
+                 button.disabled=true;
+                 alert("Game OVER") ;
+              } 
+      else 
+      {
+      		console.log('working');
+            document.getElementById("somediv").innerHTML=timeLeft + "seconds remaining";
+            timeLeft--;
+      }
+
+      setInterval(countdown, 1000);
+}
+</script>
+</head>
+<body>
+<h1>PLAYER1</h1>
+<h1>Countdown Clock</h1> 
+<div id="somediv"> 
+	</div>
+<div id="img">
+	<img width="200px" id="d1" src="dice-1.png">
+</div>
+
+<div id="currentsc" class="currentsco">0</div>
+
+<div id="total" class="tot">0</div>
+
+<button id="button" value="dice1" onclick="rolldice()" style="border: none;">ROLL DICE</button>
+<h3 id="position" ></h3>
+
+
+</body>
+</html>
